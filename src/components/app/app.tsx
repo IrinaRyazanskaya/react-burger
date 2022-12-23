@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { getIngridients } from '../../api';
+import { AppHeader } from '../app-header';
 
 import styles from './app.module.css';
 
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <div className={styles.app}>
-    
+      <AppHeader />
     </div>
   );
 }
