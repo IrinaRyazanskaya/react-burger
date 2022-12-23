@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { getIngridients } from '../../api';
-import { AppHeader } from '../app-header';
+import { getIngridients } from '../api';
+import { AppHeader } from '../components/app-header';
 
 import styles from './app.module.css';
 
