@@ -1,28 +1,30 @@
 import { useEffect, useState } from 'react';
 
-import { getIngridients } from '../api';
+import { getIngredients } from '../api';
 import { AppHeader } from '../components/app-header';
+import { ConstructorPage } from '../pages/constructor';
 
 import styles from './app.module.css';
 
 function App() {
-  const [ingridients, setIngridients] = useState();
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
-    getIngridients()
+    getIngredients()
       .then((data) => {
-        setIngridients(data);
+        setIngredients(data);
       })
       .catch((error) => {
         console.error(error);
       })
   }, []);
 
-  console.log(ingridients);
+  console.log(ingredients);
 
   return (
     <div className={styles.app}>
       <AppHeader />
+      <ConstructorPage ingredients={ingredients} />
     </div>
   );
 }

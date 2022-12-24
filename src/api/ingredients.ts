@@ -1,6 +1,6 @@
 const API_DOMAIN = 'https://norma.nomoreparties.space';
 
-function getIngridients() {
+function getIngredients() {
   return fetch(`${API_DOMAIN}/api/ingredients`)
     .then((response) => {
       if (response.ok) {
@@ -14,4 +14,4 @@ function getIngridients() {
     });
 }
 
-export { getIngridients };
+export { getIngredients };
