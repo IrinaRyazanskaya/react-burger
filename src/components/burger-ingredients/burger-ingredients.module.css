@@ -1,0 +1,31 @@
+.ingredients {
+  width: 600px;
+}
+
+.ingredientsContainer {
+  height: calc(100vh - 364px);
+  overflow-y: scroll;
+  scrollbar-width: 8px;
+}
+
+.ingredientsContainer::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 8px;
+}
+
+.ingredientsContainer::-webkit-scrollbar-thumb {
+  background-color: var(--text-inactive-color);
+}
+
+.ingredientType {
+  display: grid;
+  grid-template-columns: repeat(2, 272px);
+  width: 568px;
+  gap: 32px 24px;
+  padding: 0;
+  margin-top: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+}

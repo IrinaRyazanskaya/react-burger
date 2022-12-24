@@ -1,11 +1,9 @@
-import { BurgerIngredient } from '../../components/ingredient';
+import { BurgerIngredients } from '../../components/burger-ingredients';
 
 function ConstructorPage({ ingredients }: any) {
-    return (
+  return (
     <main>
-        {ingredients.map((ingredient: any) => {
-            return <BurgerIngredient key={ingredient._id} ingredient={ingredient} />
-        })}
+      <BurgerIngredients ingredients={ingredients} />
     </main>
   );
 }
