@@ -1,5 +1,5 @@
 .ingredients {
-  width: 600px;
+  max-width: 600px;
 }
 
 .ingredientsContainer {
@@ -11,6 +11,7 @@
 .ingredientsContainer::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 8px;
+  background-color: var(--background-element);
 }
 
 .ingredientsContainer::-webkit-scrollbar-thumb {

@@ -22,7 +22,7 @@ function BurgerIngredients({ ingredients }: any) {
   });
 
   return (
-    <section className={styles.ingredients}>
+    <section className={`${styles.ingredients} mr-10`}>
       <h1 className={`${styles.title} text text_type_main-large mt-10 mb-5`}>
         Соберите бургер
       </h1>
