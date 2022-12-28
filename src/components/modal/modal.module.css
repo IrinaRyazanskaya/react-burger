@@ -1,0 +1,26 @@
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  background-color: var(--background);
+  border-radius: 40px;
+  box-sizing: border-box;
+}
+
+.closeButton {
+  position: absolute;
+  right: 40px;
+  top: 60px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.title {
+  margin: 0;
+  line-height: 64px;
+}

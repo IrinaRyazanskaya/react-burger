@@ -4,10 +4,11 @@ import {
   Button,
   DragIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
+import { ModalOverlay } from '../modal-overlay';
 
 import styles from './burger-constructor.module.css';
 
-function BurgerConstructor() {
+function BurgerConstructor({ modalState, setModalState, modalClose }: any) {
   return (
     <section className={`${styles.constructor} mt-25 pl-4`}>
       <ConstructorElement
@@ -73,10 +74,26 @@ function BurgerConstructor() {
         <div className={`${styles.iconWrap} ml-2 mr-10`}>
           <CurrencyIcon type="primary" />
         </div>
-        <Button htmlType="button" type="primary" size="large">
+        <Button
+          htmlType="button"
+          type="primary"
+          size="large"
+          onClick={() => {
+            setModalState({
+              ...modalState,
+              isOpen: true,
+            });
+          }}
+        >
           Оформить заказ
         </Button>
       </div>
+      <ModalOverlay
+        isOpen={modalState.isOpen}
+        title={modalState.title}
+        content="Blabla"
+        onClose={modalClose}
+      />
     </section>
   );
 }

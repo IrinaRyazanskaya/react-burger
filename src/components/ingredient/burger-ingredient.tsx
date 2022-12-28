@@ -5,9 +5,9 @@ import {
 
 import styles from './burger-ingredient.module.css';
 
-function BurgerIngredient({ ingredient }: any) {
+function BurgerIngredient({ ingredient, onClick }: any) {
   return (
-    <li className={styles.card}>
+    <li className={styles.card} onClick={onClick}>
       <Counter count={1} size="default" extraClass="m-1" />
       <img className={styles.image} src={ingredient.image} alt={ingredient.name} />
       <div className={`${styles.price} text text_type_digits-default mt-1 mb-1`}>

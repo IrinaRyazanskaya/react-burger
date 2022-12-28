@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
+import { ModalOverlay } from '../modal-overlay';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import { BurgerIngredient } from '../../components/ingredient';
 
 import styles from './burger-ingredients.module.css';
 
-function BurgerIngredients({ ingredients }: any) {
+function BurgerIngredients({ ingredients, modalState, setModalState, modalClose }: any) {
   const [current, setCurrent] = useState('one');
   const buns: any[] = [];
   const sauces: any[] = [];
@@ -38,37 +39,73 @@ function BurgerIngredients({ ingredients }: any) {
         </Tab>
       </div>
       <div className={`${styles.ingredientsContainer} mt-10`}>
-        <h2
-          className={`${styles.subtitle} text text_type_main-medium mb-6`}
-        >
+        <h2 className={`${styles.subtitle} text text_type_main-medium mb-6`}>
           Булки
         </h2>
         <ul className={`${styles.ingredientType} mb-10 ml-4`}>
           {buns.map((bun: any) => {
-            return <BurgerIngredient key={bun._id} ingredient={bun} />;
+            return (
+              <BurgerIngredient
+                key={bun._id}
+                ingredient={bun}
+                onClick={() => {
+                  setModalState({
+                    ...modalState,
+                    title: 'Детали ингредиента',
+                    isOpen: true,
+                  });
+                }}
+              />
+            );
           })}
         </ul>
-        <h2
-          className={`${styles.subtitle} text text_type_main-medium mb-6`}
-        >
+        <h2 className={`${styles.subtitle} text text_type_main-medium mb-6`}>
           Соусы
         </h2>
         <ul className={`${styles.ingredientType} mb-10 ml-4`}>
           {sauces.map((sauce: any) => {
-            return <BurgerIngredient key={sauce._id} ingredient={sauce} />;
+            return (
+              <BurgerIngredient
+                key={sauce._id}
+                ingredient={sauce}
+                onClick={() => {
+                  setModalState({
+                    ...modalState,
+                    title: 'Детали ингредиента',
+                    isOpen: true,
+                  });
+                }}
+              />
+            );
           })}
         </ul>
-        <h2
-          className={`${styles.subtitle} text text_type_main-medium mb-6`}
-        >
+        <h2 className={`${styles.subtitle} text text_type_main-medium mb-6`}>
           Основное
         </h2>
         <ul className={`${styles.ingredientType} ml-4`}>
           {main.map((main: any) => {
-            return <BurgerIngredient key={main._id} ingredient={main} />;
+            return (
+              <BurgerIngredient
+                key={main._id}
+                ingredient={main}
+                onClick={() => {
+                  setModalState({
+                    ...modalState,
+                    title: 'Детали ингредиента',
+                    isOpen: true,
+                  });
+                }}
+              />
+            );
           })}
         </ul>
       </div>
+      <ModalOverlay
+        isOpen={modalState.isOpen}
+        title={modalState.title}
+        content="Blabla"
+        onClose={modalClose}
+      />
     </section>
   );
 }
