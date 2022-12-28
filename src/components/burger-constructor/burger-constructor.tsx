@@ -82,6 +82,7 @@ function BurgerConstructor({ modalState, setModalState, modalClose }: any) {
             setModalState({
               ...modalState,
               isOpen: true,
+              type: 'order-details',
             });
           }}
         >
@@ -89,7 +90,7 @@ function BurgerConstructor({ modalState, setModalState, modalClose }: any) {
         </Button>
       </div>
       <ModalOverlay
-        isOpen={modalState.isOpen}
+        isOpen={modalState.isOpen && modalState.type === 'order-details'}
         title={modalState.title}
         content="Blabla"
         onClose={modalClose}

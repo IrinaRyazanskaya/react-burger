@@ -3,10 +3,16 @@ import { useState } from 'react';
 import { ModalOverlay } from '../modal-overlay';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import { BurgerIngredient } from '../../components/ingredient';
+import { IngredientDetails } from '../ingredient-details';
 
 import styles from './burger-ingredients.module.css';
 
-function BurgerIngredients({ ingredients, modalState, setModalState, modalClose }: any) {
+function BurgerIngredients({
+  ingredients,
+  modalState,
+  setModalState,
+  modalClose,
+}: any) {
   const [current, setCurrent] = useState('one');
   const buns: any[] = [];
   const sauces: any[] = [];
@@ -51,8 +57,10 @@ function BurgerIngredients({ ingredients, modalState, setModalState, modalClose 
                 onClick={() => {
                   setModalState({
                     ...modalState,
-                    title: 'Детали ингредиента',
                     isOpen: true,
+                    title: 'Детали ингредиента',
+                    content: bun,
+                    type: 'ingredient-details',
                   });
                 }}
               />
@@ -71,8 +79,10 @@ function BurgerIngredients({ ingredients, modalState, setModalState, modalClose 
                 onClick={() => {
                   setModalState({
                     ...modalState,
-                    title: 'Детали ингредиента',
                     isOpen: true,
+                    title: 'Детали ингредиента',
+                    content: sauce,
+                    type: 'ingredient-details',
                   });
                 }}
               />
@@ -91,8 +101,10 @@ function BurgerIngredients({ ingredients, modalState, setModalState, modalClose 
                 onClick={() => {
                   setModalState({
                     ...modalState,
-                    title: 'Детали ингредиента',
                     isOpen: true,
+                    title: 'Детали ингредиента',
+                    content: main,
+                    type: 'ingredient-details',
                   });
                 }}
               />
@@ -101,9 +113,18 @@ function BurgerIngredients({ ingredients, modalState, setModalState, modalClose 
         </ul>
       </div>
       <ModalOverlay
-        isOpen={modalState.isOpen}
+        isOpen={modalState.isOpen && modalState.type === 'ingredient-details'}
         title={modalState.title}
-        content="Blabla"
+        content={
+          <IngredientDetails
+            image={modalState.content.image_large}
+            title={modalState.content.name}
+            calories={modalState.content.calories}
+            proteins={modalState.content.proteins}
+            fat={modalState.content.fat}
+            carbohydrates={modalState.content.carbohydrates}
+          />
+        }
         onClose={modalClose}
       />
     </section>

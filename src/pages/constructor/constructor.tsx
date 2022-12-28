@@ -6,10 +6,15 @@ import { BurgerConstructor } from '../../components/burger-constructor';
 import styles from './constructor.module.css';
 
 function ConstructorPage({ ingredients }: any) {
-  const [modalState, setModalState] = useState({ title: '', isOpen: false });
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    title: '',
+    content: {},
+    type: '',
+  });
 
   const modalClose = () => {
-    setModalState({ ...modalState, title: '', isOpen: false });
+    setModalState({ ...modalState, isOpen: false, title: '', content: {}, type: '' });
   };
 
   return (
