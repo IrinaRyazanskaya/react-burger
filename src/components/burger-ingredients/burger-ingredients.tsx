@@ -117,20 +117,16 @@ function BurgerIngredients({
         isOpen={modalState.isOpen && modalState.type === 'ingredient-details'}
         onClose={modalClose}
       >
-        <Modal
-          title={modalState.title}
-          content={
-            <IngredientDetails
-              image={modalState.content.image_large}
-              title={modalState.content.name}
-              calories={modalState.content.calories}
-              proteins={modalState.content.proteins}
-              fat={modalState.content.fat}
-              carbohydrates={modalState.content.carbohydrates}
-            />
-          }
-          onClose={modalClose}
-        />
+        <Modal title={modalState.title} onClose={modalClose}>
+          <IngredientDetails
+            image={modalState.content.image_large}
+            title={modalState.content.name}
+            calories={modalState.content.calories}
+            proteins={modalState.content.proteins}
+            fat={modalState.content.fat}
+            carbohydrates={modalState.content.carbohydrates}
+          />
+        </Modal>
       </ModalOverlay>
     </section>
   );

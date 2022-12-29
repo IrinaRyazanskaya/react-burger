@@ -96,11 +96,9 @@ function BurgerConstructor({ modalState, setModalState, modalClose }: any) {
         isOpen={modalState.isOpen && modalState.type === 'order-details'}
         onClose={modalClose}
       >
-        <Modal
-          title={modalState.title}
-          content={<OrderDetails />}
-          onClose={modalClose}
-        />
+        <Modal title={modalState.title} onClose={modalClose}>
+          <OrderDetails />
+        </Modal>
       </ModalOverlay>
     </section>
   );
