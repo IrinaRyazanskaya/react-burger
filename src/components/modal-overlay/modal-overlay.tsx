@@ -1,6 +1,5 @@
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
-
-import { Modal } from '../modal/modal';
 
 import styles from './modal-overlay.module.css';
 
@@ -26,5 +25,11 @@ function ModalOverlay({ isOpen, onClose, children }: any) {
     modalRoot
   );
 }
+
+ModalOverlay.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export { ModalOverlay };

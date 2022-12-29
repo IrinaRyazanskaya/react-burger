@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   Counter,
   CurrencyIcon,
@@ -18,5 +19,14 @@ function BurgerIngredient({ ingredient, onClick }: any) {
     </li>
   );
 }
+
+BurgerIngredient.propTypes = {
+  ingredient: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export { BurgerIngredient };

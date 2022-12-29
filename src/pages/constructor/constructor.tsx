@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { BurgerIngredients } from '../../components/burger-ingredients';
 import { BurgerConstructor } from '../../components/burger-constructor';
@@ -14,7 +15,13 @@ function ConstructorPage({ ingredients }: any) {
   });
 
   const modalClose = () => {
-    setModalState({ ...modalState, isOpen: false, title: '', content: {}, type: '' });
+    setModalState({
+      ...modalState,
+      isOpen: false,
+      title: '',
+      content: {},
+      type: '',
+    });
   };
 
   return (
@@ -33,5 +40,9 @@ function ConstructorPage({ ingredients }: any) {
     </main>
   );
 }
+
+ConstructorPage.propTypes = {
+  ingredients: PropTypes.array.isRequired,
+};
 
 export { ConstructorPage };

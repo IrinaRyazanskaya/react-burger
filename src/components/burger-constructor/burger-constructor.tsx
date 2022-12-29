@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   ConstructorElement,
   CurrencyIcon,
@@ -103,5 +104,16 @@ function BurgerConstructor({ modalState, setModalState, modalClose }: any) {
     </section>
   );
 }
+
+BurgerConstructor.propTypes = {
+  modalState: PropTypes.shape({
+    isOpen: PropTypes.bool,
+    title: PropTypes.string,
+    content: PropTypes.object,
+    type: PropTypes.string,
+  }).isRequired,
+  setModalState: PropTypes.func.isRequired,
+  modalClose: PropTypes.func.isRequired,
+};
 
 export { BurgerConstructor };
