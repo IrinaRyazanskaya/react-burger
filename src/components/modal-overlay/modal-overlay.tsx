@@ -13,13 +13,15 @@ function ModalOverlay({ isOpen, title, content, onClose }: any) {
     overlayClasses += ` ${styles.overlayIsOpen}`;
   }
 
+  function onOverlayClick(event: any) {
+    if (event.target.classList.contains(styles.overlay)) {
+      onClose();
+    }
+  }
+
   return createPortal(
-    <div className={overlayClasses}>
-      <Modal
-        title={title}
-        content={content}
-        onClose={onClose}
-      />
+    <div className={overlayClasses} onClick={onOverlayClick}>
+      <Modal title={title} content={content} onClose={onClose} />
     </div>,
     modalRoot
   );
