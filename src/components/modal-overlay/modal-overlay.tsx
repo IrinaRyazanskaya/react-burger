@@ -6,7 +6,7 @@ import styles from './modal-overlay.module.css';
 
 const modalRoot = document.getElementById('react-modals')!;
 
-function ModalOverlay({ isOpen, title, content, onClose }: any) {
+function ModalOverlay({ isOpen, onClose, children }: any) {
   let overlayClasses = styles.overlay;
 
   if (isOpen) {
@@ -21,7 +21,7 @@ function ModalOverlay({ isOpen, title, content, onClose }: any) {
 
   return createPortal(
     <div className={overlayClasses} onClick={onOverlayClick}>
-      <Modal title={title} content={content} onClose={onClose} />
+      {children}
     </div>,
     modalRoot
   );

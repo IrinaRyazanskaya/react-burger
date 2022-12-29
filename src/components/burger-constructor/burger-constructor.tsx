@@ -4,6 +4,8 @@ import {
   Button,
   DragIcon,
 } from '@ya.praktikum/react-developer-burger-ui-components';
+
+import { Modal } from '../modal';
 import { ModalOverlay } from '../modal-overlay';
 import { OrderDetails } from '../order-details';
 
@@ -92,10 +94,14 @@ function BurgerConstructor({ modalState, setModalState, modalClose }: any) {
       </div>
       <ModalOverlay
         isOpen={modalState.isOpen && modalState.type === 'order-details'}
-        title={modalState.title}
-        content={<OrderDetails />}
         onClose={modalClose}
-      />
+      >
+        <Modal
+          title={modalState.title}
+          content={<OrderDetails />}
+          onClose={modalClose}
+        />
+      </ModalOverlay>
     </section>
   );
 }

@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 
 import { ModalOverlay } from '../modal-overlay';
-import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
+import { Modal } from '../modal';
 import { BurgerIngredient } from '../../components/ingredient';
 import { IngredientDetails } from '../ingredient-details';
 
@@ -114,19 +115,23 @@ function BurgerIngredients({
       </div>
       <ModalOverlay
         isOpen={modalState.isOpen && modalState.type === 'ingredient-details'}
-        title={modalState.title}
-        content={
-          <IngredientDetails
-            image={modalState.content.image_large}
-            title={modalState.content.name}
-            calories={modalState.content.calories}
-            proteins={modalState.content.proteins}
-            fat={modalState.content.fat}
-            carbohydrates={modalState.content.carbohydrates}
-          />
-        }
         onClose={modalClose}
-      />
+      >
+        <Modal
+          title={modalState.title}
+          content={
+            <IngredientDetails
+              image={modalState.content.image_large}
+              title={modalState.content.name}
+              calories={modalState.content.calories}
+              proteins={modalState.content.proteins}
+              fat={modalState.content.fat}
+              carbohydrates={modalState.content.carbohydrates}
+            />
+          }
+          onClose={modalClose}
+        />
+      </ModalOverlay>
     </section>
   );
 }
