@@ -34,7 +34,7 @@ function BurgerIngredients({
       <h1 className={`${styles.title} text text_type_main-large mt-10 mb-5`}>
         Соберите бургер
       </h1>
-      <div style={{ display: 'flex' }}>
+      <div className={styles.tabs}>
         <Tab value="one" active={current === 'one'} onClick={setCurrent}>
           Булки
         </Tab>
