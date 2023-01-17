@@ -14,7 +14,7 @@ function BurgerIngredients({
   setModalState,
   modalClose,
 }: any) {
-  const [current, setCurrent] = useState('one');
+  const [current, setCurrent] = useState('buns');
   const buns: any[] = [];
   const sauces: any[] = [];
   const main: any[] = [];
@@ -29,19 +29,29 @@ function BurgerIngredients({
     }
   });
 
+  const openModal = (content: any) => {
+    setModalState({
+      ...modalState,
+      content,
+      isOpen: true,
+      title: 'Детали ингредиента',
+      type: 'ingredient-details',
+    });
+  };
+
   return (
     <section className={`${styles.ingredients} mr-10`}>
       <h1 className={`${styles.title} text text_type_main-large mt-10 mb-5`}>
         Соберите бургер
       </h1>
       <div className={styles.tabs}>
-        <Tab value="one" active={current === 'one'} onClick={setCurrent}>
+        <Tab value="buns" active={current === 'buns'} onClick={setCurrent}>
           Булки
         </Tab>
-        <Tab value="two" active={current === 'two'} onClick={setCurrent}>
+        <Tab value="sauces" active={current === 'sauces'} onClick={setCurrent}>
           Соусы
         </Tab>
-        <Tab value="three" active={current === 'three'} onClick={setCurrent}>
+        <Tab value="main" active={current === 'main'} onClick={setCurrent}>
           Начинки
         </Tab>
       </div>
@@ -55,15 +65,7 @@ function BurgerIngredients({
               <BurgerIngredient
                 key={bun._id}
                 ingredient={bun}
-                onClick={() => {
-                  setModalState({
-                    ...modalState,
-                    isOpen: true,
-                    title: 'Детали ингредиента',
-                    content: bun,
-                    type: 'ingredient-details',
-                  });
-                }}
+                onClick={() => openModal(bun)}
               />
             );
           })}
@@ -77,15 +79,7 @@ function BurgerIngredients({
               <BurgerIngredient
                 key={sauce._id}
                 ingredient={sauce}
-                onClick={() => {
-                  setModalState({
-                    ...modalState,
-                    isOpen: true,
-                    title: 'Детали ингредиента',
-                    content: sauce,
-                    type: 'ingredient-details',
-                  });
-                }}
+                onClick={() => openModal(sauce)}
               />
             );
           })}
@@ -99,15 +93,7 @@ function BurgerIngredients({
               <BurgerIngredient
                 key={main._id}
                 ingredient={main}
-                onClick={() => {
-                  setModalState({
-                    ...modalState,
-                    isOpen: true,
-                    title: 'Детали ингредиента',
-                    content: main,
-                    type: 'ingredient-details',
-                  });
-                }}
+                onClick={() => openModal(main)}
               />
             );
           })}
