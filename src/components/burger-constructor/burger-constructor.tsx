@@ -7,7 +7,6 @@ import {
 } from '@ya.praktikum/react-developer-burger-ui-components';
 
 import { Modal } from '../modal';
-import { ModalOverlay } from '../modal-overlay';
 import { OrderDetails } from '../order-details';
 
 import styles from './burger-constructor.module.css';
@@ -93,14 +92,13 @@ function BurgerConstructor({ modalState, setModalState, modalClose }: any) {
           Оформить заказ
         </Button>
       </div>
-      <ModalOverlay
+      <Modal
+        title={modalState.title}
         isOpen={modalState.isOpen && modalState.type === 'order-details'}
         onClose={modalClose}
       >
-        <Modal title={modalState.title} onClose={modalClose}>
-          <OrderDetails />
-        </Modal>
-      </ModalOverlay>
+        <OrderDetails />
+      </Modal>
     </section>
   );
 }
