@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
-import { createPortal } from 'react-dom';
 
 import styles from './modal-overlay.module.css';
-
-const modalRoot = document.getElementById('react-modals')!;
 
 function ModalOverlay({ isOpen, onClose, children }: any) {
   let overlayClasses = styles.overlay;
@@ -18,11 +15,10 @@ function ModalOverlay({ isOpen, onClose, children }: any) {
     }
   }
 
-  return createPortal(
+  return (
     <div className={overlayClasses} onClick={onOverlayClick}>
       {children}
-    </div>,
-    modalRoot
+    </div>
   );
 }
 
