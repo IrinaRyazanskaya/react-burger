@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { BurgerIngredients } from '../../components/burger-ingredients';
@@ -23,23 +23,6 @@ function ConstructorPage({ ingredients }: any) {
       type: '',
     });
   }, [modalState]);
-
-  const handleEscPress = useCallback(
-    (event: any) => {
-      if (event.key === 'Escape') {
-        modalClose();
-      }
-    },
-    [modalClose]
-  );
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleEscPress, false);
-
-    return () => {
-      document.removeEventListener('keydown', handleEscPress, false);
-    };
-  }, [handleEscPress]);
 
   return (
     <main className={styles.main}>
